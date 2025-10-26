@@ -1,0 +1,19 @@
+.myprofile-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa; /* light gray background */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center; 
+}
+
+.myprofile-container .field{
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.myprofile-container .btn-success{
+  margin-bottom: 40px;
+}

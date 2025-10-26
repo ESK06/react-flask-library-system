@@ -1,0 +1,26 @@
+.browse-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa; /* light gray background */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center; 
+}
+
+.browse-container h1 {
+  margin-bottom: 30px;
+  color: #343a40; /* dark gray */
+}
+
+.list-group-item {
+  border: none; /* remove default border */
+  margin-bottom: 15px;
+}
+
+.browse-container h5 {
+  display: inline-block;
+  margin: 10px 15px;
+  color: #495057;
+}
+
