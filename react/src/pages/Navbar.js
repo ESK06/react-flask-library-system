@@ -6,7 +6,7 @@ import { useAuth } from '../authProvider'
 function Navbar() {
 
   const navigate = useNavigate()  
-  const {token, logout} = useAuth()
+  const {token, logout, isAdmin} = useAuth()
   
   const handlelogout = () => {
     logout()
@@ -18,6 +18,7 @@ function Navbar() {
     <nav className='navbar'>
       <h2 className='navbar-logo pe-none'><em>MyLibrary</em></h2>
       <div className='navbar-links'>
+        {isAdmin && (<Link to='/admin' type='button' className='btn btn-light'>Admin Panel</Link>)}
         <Link to='/home' type='button' className='btn btn-light'>Home</Link>
         <Link to='/browse' type='button' className='btn btn-light'>Browse</Link>
         <Link to='/profile' type='button' className='btn btn-light'>My Profile</Link>

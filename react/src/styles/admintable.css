@@ -1,0 +1,47 @@
+.table-container {
+  margin: 20px auto;
+  width: 95%;
+  padding: 10px;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  border: 1px solid #333;
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar button{
+  margin-left: 20px;
+}
+
+.searchbox {
+  display: flex;
+}
+
+.searchbox form {
+  width: 500px;
+}
+
+.searchbox input {
+  width: 350px;
+
+}

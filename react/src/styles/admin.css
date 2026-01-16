@@ -1,0 +1,41 @@
+.adminpanel {
+  width: 700px;
+  margin: 50px auto;
+  padding: 70px;
+  border: 2px solid;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.adminpanel h1 {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.adminpanel p {
+  margin-top: 16px;
+  font-size: 20px;
+}
+
+
+.adminpanel .button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.adminpanel button {
+  flex: 1;
+  padding: 8px 16px;
+  border: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+  color: #24292f;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.adminpanel button:hover {
+  background-color: #f3f4f6;
+  border-color: black;
+}

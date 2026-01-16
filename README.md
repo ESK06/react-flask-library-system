@@ -1,3 +1,3 @@
 # Library Managment System
 
-Basic library system designed using React, Flask, MongoDB
+Library system designed using React, Flask, MongoDB

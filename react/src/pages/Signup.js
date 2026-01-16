@@ -46,17 +46,17 @@ function Signup() {
     return (
         <div className='d-flex justify-content-center align-item-center bg-primary vh-100'>
             <div className='signup-form-container bg-white p-3 rounded w-25'>
-                <h1 className='align-item-center'>Sign up</h1>
+                <h1 className='text-center'>Sign Up</h1>
                 <form name='signupform' onSubmit={handleSubmit}>
                     <div className='mb-3'>
                         <label htmlFor='name'>Name</label>
-                        <input type='text' name='name' className='field form-control rounded-0' required
+                        <input id='name' type='text' name='name' className='field form-control rounded-0' required
                         onChange={handleInput}></input>
                         <label htmlFor='email'>Email</label>
-                        <input type='email' name='email' className='field form-control rounded-0' required
+                        <input id='email' type='email' name='email' className='field form-control rounded-0' required
                         onChange={handleInput}></input>
                         <label htmlFor='password'>Password</label>
-                        <input type='password' name='password' className='field form-control rounded-0' required
+                        <input id='password' type='password' name='password' className='field form-control rounded-0' required
                         onChange={handleInput}></input>
                     </div>
                     <button type='submit' className='btn btn-success'>Create Account</button>

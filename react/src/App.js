@@ -2,6 +2,11 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Admin from './pages/admin/Admin'
+import AdminEdit from './pages/admin/AdminEdit'
+import Users from './pages/admin/Users'
+import Books from './pages/admin/Books'
+import Requests from './pages/admin/Requests'
 import Home from './pages/Home'
 import Layout from './pages/Layout'
 import Myprofile from './pages/Myprofile'
@@ -20,6 +25,12 @@ function App() {
         <Route path='/signup' element={<Signup />}></Route>
 
         <Route element={<Layout />}>
+          <Route path='/admin' element={<Admin />}></Route>
+          <Route path='/admin/users' element={<Users />}></Route>
+          <Route path='/admin/books' element={<Books />}></Route>
+          <Route path='/admin/requests' element={<Requests />}></Route>
+          <Route path='/admin/:type/update/:id' element={<AdminEdit type='users' />}></Route>
+          <Route path='/admin/:type/update/:id' element={<AdminEdit type='books' />}></Route>
           <Route path='/home' element={<Home />}></Route>
           <Route path='/profile' element={<Myprofile />}></Route>
           <Route path='/results' element={<Results />}></Route>

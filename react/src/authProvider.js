@@ -1,4 +1,5 @@
 import React, {useContext, createContext, useState} from 'react'
+import {jwtDecode} from 'jwt-decode'
 
 const authcontext = createContext()
 
@@ -11,13 +12,23 @@ export function AuthProvider({children}) {
         setToken(newToken)
     }
 
+    const getAdmin = () => {
+        try{
+            return jwtDecode(token).isAdmin === true
+        }
+        catch (error){
+            return false
+        }
+
+    }
+
     const logout = () => {
         localStorage.removeItem('access_token')
         setToken(null)
     }
 
   return (
-    <authcontext.Provider value={{token, login, logout}}>
+    <authcontext.Provider value={{token, isAdmin:getAdmin(), login, logout}}>
         {children}
     </authcontext.Provider>
     
