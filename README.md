@@ -12,9 +12,11 @@ Also includes **Docker** configuration for Deployment.
 - **Deployment:** Docker
 
 ## Project Structure
+```
 /tests
-Playwright Tests
+  Playwright Tests
 /QA
-Manual Testing.xlsx - Manual test cases
+  Manual Testing.xlsx - Manual test cases
 /QA/postman
-Library Flask API Collection and Flask Environment Json Files
+  Library Flask API Collection and Flask Environment Json Files
+```
