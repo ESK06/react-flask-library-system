@@ -1,0 +1,30 @@
+services:
+
+  frontend:
+    build: ./react
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+
+  backend:
+    build: ./flask
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://database:27017/library
+    depends_on:
+      - database
+    restart: unless-stopped
+
+  database:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+      - ./mongodb:/dump
+    restart: unless-stopped
+
+volumes:
+  mongo_data:

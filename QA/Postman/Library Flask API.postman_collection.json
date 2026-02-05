@@ -1,0 +1,1141 @@
+{
+  "info": {
+    "_postman_id": "d84d1508-bb48-4f4d-85cf-f951b1070b07",
+    "name": "Library Flask API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51800569",
+  },
+  "item": [
+    {
+      "name": "Signup",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"postman\",\r\n    \"email\": \"postman@test\",\r\n    \"password\": \"postmantest\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/signup/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "signup",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Valid Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();\r",
+              "pm.environment.set(\"access_token\", response.access_token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"postman@test\",\r\n    \"password\": \"postmantest\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/login/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Invalid Login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"postman123@test\",\r\n    \"password\": \"postman123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/login/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Inputs Missing Login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/login/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User name",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/username/get/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "username",
+            "get",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User name (no token)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/username/get/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "username",
+            "get",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update User name 1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"newusername\":\"testuserpostman\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/username/update/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "username",
+            "update",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update User name 2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"newusername\":\"postman\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/username/update/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "username",
+            "update",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update User name (no token)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"newusername\":\"testuserpostman\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/username/update/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "username",
+            "update",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Browse",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/browse/protected/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "browse",
+            "protected",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Browse (no token)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/browse/protected/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "browse",
+            "protected",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{access_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/search/protected/?query=Life of Pi",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "search",
+            "protected",
+            ""
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "Life of Pi",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Invalid Search",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{access_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/search/protected/?query=\"\"",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "search",
+            "protected",
+            ""
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "\"\""
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search (no token)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/search/protected/?query=Life of Pi",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "search",
+            "protected",
+            ""
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "Life of Pi"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Book Details",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/browse/protected/68c81891da2af7d01a72e4b3",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "browse",
+            "protected",
+            "68c81891da2af7d01a72e4b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Book Details (no token)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/browse/protected/68c81891da2af7d01a72e4b3",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "browse",
+            "protected",
+            "68c81891da2af7d01a72e4b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Request Book (no token)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"1984\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/request/protected/add/68c81891da2af7d01a72e4b3",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "request",
+            "protected",
+            "add",
+            "68c81891da2af7d01a72e4b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Request Book",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"1984\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/request/protected/add/68c81891da2af7d01a72e4b3",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "request",
+            "protected",
+            "add",
+            "68c81891da2af7d01a72e4b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Wishlist Book",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"1984\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/wishlist/protected/add/68c81891da2af7d01a72e4b3",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "wishlist",
+            "protected",
+            "add",
+            "68c81891da2af7d01a72e4b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Remove Wishlisted Book",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/wishlist/protected/remove/68c81891da2af7d01a72e4b3",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "wishlist",
+            "protected",
+            "remove",
+            "68c81891da2af7d01a72e4b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Requested Books",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/request/protected/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "request",
+            "protected",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Requested Books (no token)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/request/protected/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "request",
+            "protected",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Wishlist",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/wishlist/protected/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "wishlist",
+            "protected",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Wishlist (no token)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/wishlist/protected/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "wishlist",
+            "protected",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Valid Admin Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();\r",
+              "pm.environment.set(\"access_token\", response.access_token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"admintestuser@test\",\r\n    \"password\": \"admintestuser\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/login/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Get All Users",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();\r",
+              "let user = response.find(a => a.name === \"postman\");\r",
+              "\r",
+              "if (user) {\r",
+              "    pm.environment.set(\"user_id\", user.userid);\r",
+              "} else {\r",
+              "    console.log(\"User not found\");\r",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/admin/user/get/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "user",
+            "get",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Update User",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"postman12\",\r\n    \"email\": \"postman12@test\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/admin/user/update/{{user_id}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "user",
+            "update",
+            "{{user_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Reset Password",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userid\": \"6976f814fe8f21684b85bf2b\",\r\n    \"newpassword\": \"postmantest12\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/admin/user/resetpsw/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "user",
+            "resetpsw",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Add a Book",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"postman\",\r\n    \"author\": \"postman\",\r\n    \"genre\": \"post\",\r\n    \"year\": \"1234\",\r\n    \"description\": \"postman\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/admin/books/add/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "books",
+            "add",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Get All Books",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();\r",
+              "let book = response.find(b => b.title === \"postman\");\r",
+              "\r",
+              "if (book){\r",
+              "    pm.environment.set(\"book_id\", book.bookid);\r",
+              "} else {\r",
+              "    console.log(\"Book not found\");\r",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/admin/books/get/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "books",
+            "get",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Update Book",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"postman12\",\r\n    \"author\": \"postman12\",\r\n    \"genre\": \"post12\",\r\n    \"year\": \"1234\",\r\n    \"description\": \"postman\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/admin/books/update/{{book_id}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "books",
+            "update",
+            "{{book_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Delete Book",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"bookid\": \"{{book_id}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/admin/books/delete/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "books",
+            "delete",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Get All Requests",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();\r",
+              "let request = response.find(r => r.user_email.includes(\"postman12@test\"));\r",
+              "\r",
+              "if (request){\r",
+              "    pm.environment.set(\"request_id\", request.requestid);\r",
+              "} else {\r",
+              "    console.log(\"request not found\");\r",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/admin/requests/get/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "requests",
+            "get",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Update Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"requestid\": \"{{request_id}}\",\r\n    \"status\": \"Accepted\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/admin/requests/update/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "requests",
+            "update",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Get All Requests History",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/admin/requests/history/get/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "requests",
+            "history",
+            "get",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Delete User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.environment.unset(\"access_token\");\r",
+              "pm.environment.unset(\"user_id\");\r",
+              "pm.environment.unset(\"book_id\");\r",
+              "pm.environment.unset(\"request_id\");"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userid\": \"{{user_id}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/admin/user/delete/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "admin",
+            "user",
+            "delete",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{access_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": ""
+    }
+  ]
+}

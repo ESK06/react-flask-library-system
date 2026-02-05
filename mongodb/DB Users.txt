@@ -11,3 +11,13 @@ jhn123
 Ben
 ben123@email.com
 ben456
+
+For testing purposes
+
+testuser
+testuser@test
+testuser
+
+admintestuser
+admintestuser@test
+admintestuser

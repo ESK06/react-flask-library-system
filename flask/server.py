@@ -3,6 +3,7 @@ from flask_cors import CORS
 from bson.objectid import ObjectId
 import pymongo
 import bcrypt
+import os
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -13,7 +14,9 @@ app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = 'secretkey'
 jwt = JWTManager(app)
 
-client=pymongo.MongoClient('localhost',27017)
+#client=pymongo.MongoClient('localhost',27017)
+client=pymongo.MongoClient(os.getenv("MONGO_URI"))
+
 db=client.library
 
 
@@ -244,7 +247,7 @@ class Book:
         description = alldata.get('descritpion')
         
         self.books.insert_one({'title':title,'author':author,'genre':genre,'year':year,'description':description})
-        return jsonify({'message': 'success'}), 20
+        return jsonify({'message': 'success'}), 201
     
     @jwt_required()
     def updateBook(self, bookid):
@@ -474,4 +477,5 @@ app.add_url_rule('/admin/requests/update/', view_func=bookoptions.updateRequestS
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+    #app.run(debug=True)
